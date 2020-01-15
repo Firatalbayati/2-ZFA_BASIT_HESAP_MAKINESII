@@ -1,0 +1,8 @@
+*&---------------------------------------------------------------------*
+*&  Include           ZFA_BASIT_HESAP_MAKINESII_TOP
+*&---------------------------------------------------------------------*
+
+CLASS : gcl_class DEFINITION DEFERRED.  "TANIMLANMA TANIMLANMIŞ
+DATA : go_object TYPE REF TO gcl_class.
+
+DATA: gv_sonuc TYPE i.

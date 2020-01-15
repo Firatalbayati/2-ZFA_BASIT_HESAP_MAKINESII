@@ -1,0 +1,54 @@
+*&---------------------------------------------------------------------*
+*&  Include           ZFA_OO_ORNEK1_F01
+*&---------------------------------------------------------------------*
+*&---------------------------------------------------------------------*
+*&      Form  GET_DATA
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+*  -->  p1        text
+*  <--  p2        text
+*----------------------------------------------------------------------*
+FORM get_data .
+
+  gv_tarih = lcl_hesap_makinesi=>gunun_tarihini_donder( ).
+
+  WRITE / gv_tarih.
+
+CREATE OBJECT go_hsp1.
+
+  go_hsp1->toplama_yap( EXPORTING iv_sayi1 = 4
+                                  iv_sayi2 = 7
+                        RECEIVING rv_sonuc = gv_sonuc ).
+
+
+
+  WRITE / gv_sonuc.
+
+  CREATE OBJECT go_hsp2
+    EXPORTING
+      iv_sayi1 = 3
+      iv_sayi2 = 5.
+
+  gv_sonuc = go_hsp2->carpma_yap( ).
+
+  WRITE / gv_sonuc.
+
+  CREATE OBJECT go_hsp3
+    EXPORTING
+      iv_sayi1 = 4
+      iv_sayi2 = 7.
+
+  gv_sonuc = go_hsp3->carpma_yap( ).
+
+  WRITE / gv_sonuc.
+
+  go_hsp3->mv_sayi1 = 6 .
+
+  gv_sonuc = go_hsp3->carpma_yap( ).
+
+  WRITE / gv_sonuc.
+
+*go_hsp3->mv_sayi3 = 10 .
+
+ENDFORM.                    " GET_DATA

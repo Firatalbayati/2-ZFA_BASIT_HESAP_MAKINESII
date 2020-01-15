@@ -1,0 +1,83 @@
+*&---------------------------------------------------------------------*
+*&  Include           ZFA_BASIT_HESAP_MAKINESII_CLSS
+*&---------------------------------------------------------------------*
+
+CLASS gcl_class DEFINITION FINAL. "TANIM FİNALİ
+
+  PUBLIC SECTION.
+
+    METHODS: constructor " بناء
+      IMPORTING
+         iv_sayi1 TYPE numc7
+         iv_sayi2  TYPE numc7,
+         mod,
+         carpma,
+         bolme,
+         toplama,
+         cikarma.
+
+
+
+    CLASS-DATA:
+         gv_sayi1  TYPE numc7,
+         gv_sayi2  TYPE numc7.
+
+ENDCLASS.
+
+
+
+
+CLASS gcl_class IMPLEMENTATION.
+
+  METHOD constructor.  " بناء
+    gv_sayi1 = iv_sayi1.
+    gv_sayi2 = iv_sayi2.
+  ENDMETHOD.                    "constructor
+
+
+  METHOD mod.
+    IF p_sayi1 < p_sayi2 .
+      WRITE :'Mod işlemi =',' 0 ' .
+      EXIT.
+    ENDIF.
+    SKIP 2.
+    gv_sonuc = p_sayi1 MOD p_sayi2.
+    WRITE :'Mod işlemi =',gv_sonuc .
+  ENDMETHOD.                  "mod
+
+
+  METHOD carpma.
+    SKIP 2.
+    gv_sonuc = p_sayi1 * p_sayi2.
+    WRITE :'Çarpma işlemi =',gv_sonuc .
+  ENDMETHOD.
+
+
+
+  METHOD bolme.
+    IF ( p_sayi1 = 0 ).
+      MESSAGE i008(zfa_message_class) DISPLAY LIKE 'E'.
+      EXIT.
+    ENDIF.
+    SKIP 2.
+    gv_sonuc = p_sayi1 / p_sayi2.
+    WRITE :'Bölme işlemi =',gv_sonuc .
+  ENDMETHOD.
+
+
+
+  METHOD toplama.
+    SKIP 2.
+    gv_sonuc = p_sayi1 + p_sayi2.
+    WRITE :'Toplama işlemi =',gv_sonuc .
+  ENDMETHOD.
+
+
+
+  METHOD cikarma.
+    SKIP 2.
+    gv_sonuc = p_sayi1 - p_sayi2.
+    WRITE :'Çıkarma işlemi =',gv_sonuc .
+  ENDMETHOD.
+
+ENDCLASS.

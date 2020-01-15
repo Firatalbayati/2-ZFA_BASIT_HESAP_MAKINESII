@@ -1,0 +1,17 @@
+*&---------------------------------------------------------------------*
+*&  Include           ZFA_BASIT_HESAP_MAKINESII_SCRN
+*&---------------------------------------------------------------------*
+
+SELECTION-SCREEN BEGIN OF BLOCK b1 WITH FRAME TITLE text-001.
+SELECTION-SCREEN SKIP.
+PARAMETERS: p_sayi1 TYPE numc7 OBLIGATORY,
+            p_sayi2 TYPE numc7 OBLIGATORY.
+
+SELECTION-SCREEN SKIP.
+PARAMETERS : r_mod RADIOBUTTON GROUP rb1,
+             r_carpma RADIOBUTTON GROUP rb1,
+             r_bolme RADIOBUTTON GROUP rb1,
+             r_tplam RADIOBUTTON GROUP rb1,
+             r_cikrm RADIOBUTTON GROUP rb1.
+SELECTION-SCREEN SKIP.
+SELECTION-SCREEN END OF BLOCK b1.

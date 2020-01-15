@@ -1,0 +1,44 @@
+*&---------------------------------------------------------------------*
+*& Report  ZFA_BASIT_HESAP_MAKINESII
+*&
+*&---------------------------------------------------------------------*
+*&
+*&
+*&---------------------------------------------------------------------*
+
+REPORT zfa_basit_hesap_makinesii.
+
+
+INCLUDE zfa_basit_hesap_makinesii_top.
+INCLUDE zfa_basit_hesap_makinesii_scrn.
+INCLUDE zfa_basit_hesap_makinesii_clss.
+INCLUDE zfa_basit_hesap_makinesii_f01.
+
+
+AT SELECTION-SCREEN.
+
+
+INITIALIZATION.
+  CREATE OBJECT go_object
+    EXPORTING
+      iv_sayi1 = p_sayi1
+      iv_sayi2 = p_sayi2.
+
+
+START-OF-SELECTION.
+
+  IF r_mod = abap_true .
+    go_object->mod( ).
+  ELSEIF r_carpma = abap_true.
+    go_object->carpma( ).
+  ELSEIF r_bolme = abap_true.
+    go_object->bolme( ).
+  ELSEIF r_tplam = abap_true.
+    go_object->toplama( ).
+  ELSEIF r_cikrm = abap_true.
+    go_object->cikarma( ).
+  ENDIF.
+
+
+
+END-OF-SELECTION.
